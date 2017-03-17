@@ -1,0 +1,7 @@
+{
+  "name": "contact-book",
+  "version": "1.0.0",
+  "dependencies": {
+    "bower": "^1.8.0"
+  }
+}
