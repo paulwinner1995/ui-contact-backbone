@@ -3,5 +3,8 @@
   "authors": [
     "ppadalka <ppadalka@inbox.ru>"
   ],
-  "private": true
+  "private": true,
+  "dependencies": {
+    "requirejs": "^2.3.3"
+  }
 }
