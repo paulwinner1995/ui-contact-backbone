@@ -1,5 +1,6 @@
 define(function (require) {
-   var Backbone = require('backbone');
+   var $ = require('jquery');
+   var ContactView = require('scripts/view/contact.view');
 
-   console.log(Backbone);
+   new ContactView({el: $('#page-content')}).render();
 });
