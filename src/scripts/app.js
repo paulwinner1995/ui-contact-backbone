@@ -1,3 +1,5 @@
 define(function (require) {
-   console.log('Hello world');
+   var Backbone = require('backbone');
+
+   console.log(Backbone);
 });
