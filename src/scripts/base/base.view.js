@@ -1,9 +1,9 @@
 define(function (require) {
     'use strict';
 
-    var Backbone = require('backbone');
-    var Renderer = require('scripts/util/dust.renderer');
-    var _ = require('lodash');
+    var Backbone = require('backbone'),
+        Renderer = require('scripts/util/dust.renderer'),
+        _ = require('lodash');
 
     return Backbone.View.extend({
 
