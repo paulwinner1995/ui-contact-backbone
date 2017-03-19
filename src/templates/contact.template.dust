@@ -1,1 +1,19 @@
-<div class="col-md-3"></div>
+<div class="col-md-3 contact-border">
+    <div>
+        <img class="img-responsive img-rounded" src="img/{sex}.png" alt="{sex}">
+    </div>
+    <h3 class="text-center">
+        <strong>{name}</strong>
+    </h3>
+    <div>
+        <div class="text-center text-padding">
+            <span><strong>Phone:</strong> {phone}</span>
+        </div>
+        <div class="text-center text-padding">
+            <span><strong>Group:</strong> {group}</span>
+        </div>
+    </div>
+    <div class="text-center text-padding">
+        <button class="btn btn-danger">Delete</button>
+    </div>
+</div>
