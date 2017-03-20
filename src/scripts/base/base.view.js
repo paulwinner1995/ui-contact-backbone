@@ -8,7 +8,7 @@ define(function (require) {
     return Backbone.View.extend({
 
         initialize: function() {
-            Backbone.View.prototype.apply(this, arguments);
+            Backbone.View.prototype.initialize.apply(this, arguments);
             this._childViews = [];
         },
 
@@ -16,6 +16,8 @@ define(function (require) {
             var html = Renderer.renderTemplate(this.template, this.renderModel());
 
             this.$el.html(html);
+
+            this._renderChildViews();
 
             return this;
         },
@@ -33,6 +35,13 @@ define(function (require) {
         
         _addChildView: function (view) {
             this._childViews.push(view);
+        },
+
+        _renderChildViews: function () {
+            var self = this;
+            _.forEach(this._childViews, function (view) {
+                self.$el.append(view.render().el);
+            })
         },
 
         _clearChildViews: function () {

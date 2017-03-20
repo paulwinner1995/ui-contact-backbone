@@ -1,15 +1,41 @@
 define(function (require) {
-    var ContactView = require('scripts/view/contact.view');
-    var Backbone = require('backbone');
-    var $ = require('jquery');
+    var ContactCollection = require('scripts/collection/contact.collection'),
+        ContactCollectionView = require('scripts/view/contact.collection.view'),
+        $ = require('jquery');
 
-    var Contact = Backbone.Model.extend({});
-    var testContact = new Contact({
+    var contacts = [{
         name: 'Paul Winner',
         phone: '0-95-86-99-152',
         group: 'Family',
         sex: 'male'
-    });
+    }, {
+        name: 'Nazar Taran',
+        phone: '0-95-86-99-152',
+        group: 'Friends',
+        sex: 'male'
+    }, {
+        name: 'Slava Belimenko',
+        phone: '0-95-86-99-152',
+        group: 'Friends',
+        sex: 'male'
+    }, {
+        name: 'Nataly Minakova',
+        phone: '0-95-86-99-152',
+        group: 'Friends',
+        sex: 'female'
+    }, {
+        name: 'Michail Litovka',
+        phone: '0-95-86-99-152',
+        group: 'Friends',
+        sex: 'male'
+    }, {
+        name: 'Rustam Mamedow',
+        phone: '0-95-86-99-152',
+        group: 'Friends',
+        sex: 'male'
+    }];
 
-    new ContactView({el: $('#page-content'), model: testContact}).render();
+    var contactList = new ContactCollection(contacts);
+
+    new ContactCollectionView({el: $('#page-content'), collection: contactList}).render();
 });
