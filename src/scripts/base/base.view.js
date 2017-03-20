@@ -7,6 +7,11 @@ define(function (require) {
 
     return Backbone.View.extend({
 
+        initialize: function() {
+            Backbone.View.prototype.apply(this, arguments);
+            this._childViews = [];
+        },
+
         render: function () {
             var html = Renderer.renderTemplate(this.template, this.renderModel());
 
@@ -19,6 +24,22 @@ define(function (require) {
             var modelData = this.model || this.collection;
 
             return modelData && _.isFunction(modelData.toJSON) ? modelData.toJSON() : modelData;
+        },
+
+        remove: function () {
+            this._clearChildViews();
+            Backbone.View.prototype.remove.apply(this, arguments);
+        },
+        
+        _addChildView: function (view) {
+            this._childViews.push(view);
+        },
+
+        _clearChildViews: function () {
+            _.forEach(this._childViews, function (view) {
+                view.remove();
+            });
+            this._childViews = [];
         }
     });
 });
