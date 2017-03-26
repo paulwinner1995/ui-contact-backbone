@@ -1,6 +1,7 @@
 requirejs.config({
     paths: {
         'jquery': 'lib/jquery/dist/jquery.min',
+        'jquery-ui': 'lib/jquery-ui/jquery-ui.min',
         'lodash': 'lib/lodash/dist/lodash.min',
         'backbone': 'lib/backbone/backbone-min',
         'dust': 'lib/dustjs-linkedin/dist/dust-full.min',
@@ -8,8 +9,15 @@ requirejs.config({
     },
 
     shim: {
-        backbone: { deps: ['jquery']},
-        dust: { exports: 'dust'}
+        'jquery-ui': {
+            deps: ['jquery']
+        },
+        'backbone': {
+            deps: ['jquery']
+        },
+        'dust': {
+            exports: 'dust'
+        }
     },
 
     map : {

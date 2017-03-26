@@ -10,6 +10,7 @@
     "jquery": "^3.2.0",
     "lodash": "^4.17.4",
     "dustjs-linkedin": "^2.7.5",
-    "text": "^2.0.15"
+    "text": "^2.0.15",
+    "jquery-ui": "^1.12.1"
   }
 }

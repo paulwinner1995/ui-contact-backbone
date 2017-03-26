@@ -1,7 +1,7 @@
 define(function (require) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    const Backbone = require('backbone'),
         ContactModel = require('scripts/model/contact.model');
 
     return Backbone.Collection.extend({

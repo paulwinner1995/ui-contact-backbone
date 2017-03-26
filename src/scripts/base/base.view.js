@@ -1,7 +1,7 @@
 define(function (require) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    const Backbone = require('backbone'),
         Renderer = require('scripts/util/dust.renderer'),
         _ = require('lodash');
 
@@ -16,8 +16,6 @@ define(function (require) {
             var html = Renderer.renderTemplate(this.template, this.renderModel());
 
             this.$el.html(html);
-
-            this._renderChildViews();
 
             return this;
         },
@@ -37,17 +35,8 @@ define(function (require) {
             this._childViews.push(view);
         },
 
-        _renderChildViews: function () {
-            var self = this;
-            _.forEach(this._childViews, function (view) {
-                self.$el.append(view.render().el);
-            })
-        },
-
         _clearChildViews: function () {
-            _.forEach(this._childViews, function (view) {
-                view.remove();
-            });
+            _.forEach(this._childViews, (view) => view.remove());
             this._childViews = [];
         }
     });
