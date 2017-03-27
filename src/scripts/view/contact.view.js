@@ -3,9 +3,7 @@ define(function (require) {
 
     var BaseView = require('scripts/base/base.view'),
         ContactModel = require('scripts/model/contact.model'),
-        ContactRemoveDialogView = require('scripts/view/contact.remove.dialog.view'),
-        $ = require('jquery'),
-        $dialog = require('jquery-ui'),
+        ContactRemoveModalView = require('scripts/view/contact.remove.modal.view'),
         template = require('text!templates/contact.template.dust');
 
     return BaseView.extend({
@@ -21,13 +19,17 @@ define(function (require) {
             BaseView.prototype.initialize.apply(this, arguments);
 
             let self = this;
-            let removeDialog = new ContactRemoveDialogView({model: self.model});
+
+            let removeDialog = new ContactRemoveModalView({
+                model: self.model,
+                modal: true
+            });
 
             this._addChildView(removeDialog);
         },
 
         openRemoveDialog: function () {
-            $(this._childViews[0].render().el).dialog();
+            this._childViews[0].openDialog();
         }
     });
 });
